@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Our Store - Accueil{% endblock %}
+{% block title %}Nos Produits{% endblock %}
 
 {% block body %}
 <div class="container my-5">
-    <h1 class="mb-4">Our Products</h1>
+    <h1 class="mb-4">Nos Produits</h1>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for product in products %}
@@ -18,11 +18,11 @@
                     <p class="card-text fw-bold text-success">
                         {{ product.price }} €
                     </p>
-                    
-                    <button class="btn btn-outline-primary" 
-                    onclick="location.href='{{ path('app_product_details', {id: product.id}) }}'">
-                    View Details
-                    </button>
+                    {# ✅ Route Symfony, plus de details.html #}
+                    <a href="{{ path('product_details', {id: product.id}) }}"
+                       class="btn btn-outline-primary">
+                        Voir le détail
+                    </a>
                 </div>
             </div>
         </div>
